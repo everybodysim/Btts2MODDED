@@ -52,6 +52,26 @@
 <script src="offlineclient.js" type="module"></script>
 <script src="main.js" type="module"></script>
 <script src="register-sw.js" type="module"></script>
+	<script>
+  // Base URL where assets are hosted (CDN)
+  const BASE_URL = "https://cdn.jsdelivr.net/gh/bubbls/ruffle@716475a57912e1ed4ac40db3a155b5e862be48ad/btts22/";
+
+  // Save the original fetch function
+  const originalFetch = window.fetch;
+
+  // Override fetch
+  window.fetch = function(resource, init) {
+    // If resource is relative (doesn't start with http, /, or file://), prepend the CDN
+    if (typeof resource === "string" &&
+        !resource.startsWith("http://") &&
+        !resource.startsWith("https://") &&
+        !resource.startsWith("/") &&
+        !resource.startsWith("file://")) {
+      resource = BASE_URL + resource;
+    }
+    return originalFetch(resource, init);
+  };
+</script>
 
 
 
