@@ -32,27 +32,8 @@
   100% {
     transform: translateX(0);
   }
-}</style><script type="module" src="c3runtime.js"></script></head><body style="">
-
-<script src="box2d.wasm.js"></script>
-<script>
-  window.addEventListener("keydown", function(e) {
-      if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
-          e.preventDefault();
-      }
-  }, false);
-</script>
-<noscript>
-    <div id="notSupportedWrap">
-        <h2 id="notSupportedTitle">This content requires JavaScript</h2>
-        <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
-    </div>
-</noscript>
-<script src="supportcheck.js"></script>
-<script src="offlineclient.js" type="module"></script>
-<script src="main.js" type="module"></script>
-<script src="register-sw.js" type="module"></script>
-<script>
+	
+}</style><script>
   const BASE_URL = "https://cdn.jsdelivr.net/gh/bubbls/ruffle@716475a57912e1ed4ac40db3a155b5e862be48ad/btts22/";
 
   // Save the original fetch function
@@ -79,4 +60,24 @@
     return originalFetch(resource, init);
   };
 </script>
+<script type="module" src="c3runtime.js"></script></head><body style="">
+
+<script src="box2d.wasm.js"></script>
+<script>
+  window.addEventListener("keydown", function(e) {
+      if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+          e.preventDefault();
+      }
+  }, false);
+</script>
+<noscript>
+    <div id="notSupportedWrap">
+        <h2 id="notSupportedTitle">This content requires JavaScript</h2>
+        <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+    </div>
+</noscript>
+<script src="supportcheck.js"></script>
+<script src="offlineclient.js" type="module"></script>
+<script src="main.js" type="module"></script>
+<script src="register-sw.js" type="module"></script>
 
