@@ -1,48 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Big Tower Tiny Square 2</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Local CSS -->
-  <link rel="stylesheet" href="style.css">
 
-  <!-- === FETCH OVERRIDE: Local first, then CDN === -->
-  <script>
-    const BASE_URL = "https://cdn.jsdelivr.net/gh/bubbls/ruffle@716475a57912e1ed4ac40db3a155b5e862be48ad/btts22/";
-    const originalFetch = window.fetch;
+<!-- Ultimate Game Stash file--> 
+<!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ --> 
 
-    window.fetch = async function(resource, init) {
-      try {
-        // Try local file first
-        let response = await originalFetch(resource, init);
-        if (!response.ok) throw new Error("Local fetch failed");
-        return response;
-      } catch (e) {
-        // Fallback to CDN
-        return originalFetch(BASE_URL + resource, init);
+
+<html><head><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+<base href="https://cdn.jsdelivr.net/gh/everybodysim/ruffle@main/btts22/">
+
+    <meta charset="UTF-8">
+    <title>Big Tower Tiny Square 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MENBM6GSNY"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-MENBM6GSNY")</script>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+<style type="text/css">#button {
+  display:none;
+}
+.imgb_vis {
+  animation: imgb-animation 7s linear;
+}
+@keyframes imgb-animation {
+  10% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(100px);
+  }
+  90% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}</style><script type="module" src="c3runtime.js"></script></head><body style="">
+
+<script src="box2d.wasm.js"></script>
+<script>
+  window.addEventListener("keydown", function(e) {
+      if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+          e.preventDefault();
       }
-    };
+  }, false);
+</script>
+<noscript>
+    <div id="notSupportedWrap">
+        <h2 id="notSupportedTitle">This content requires JavaScript</h2>
+        <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+    </div>
+</noscript>
+<script src="supportcheck.js"></script>
+<script src="offlineclient.js" type="module"></script>
+<script src="main.js" type="module"></script>
+<script src="register-sw.js" type="module"></script>
 
-    // Optional: simple page error logger (since you can't open console)
-    window.addEventListener("error", e => {
-      document.body.innerHTML = "<pre style='color:red'>" + e.message + "\n" + e.filename + ":" + e.lineno + "</pre>";
-    });
-  </script>
-
-  <!-- Local JS (editable) -->
-  <script type="module" src="c3runtime.js"></script>
-  <script type="module" src="main.js"></script>
-  <script src="box2d.wasm.js"></script>
-  <script src="offlineclient.js" type="module"></script>
-  <script src="register-sw.js" type="module"></script>
-  <script src="supportcheck.js"></script>
-
-</head>
-<body>
-  <noscript>
-    <div style="color:red;">JavaScript is required to run this game.</div>
-  </noscript>
-</body>
-</html>
